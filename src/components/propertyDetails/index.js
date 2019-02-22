@@ -1,23 +1,35 @@
-import * as React from 'react'
-import classnames from 'classnames'
-import Gallery from '../gallery'
-import KeyFeatures from '../keyFeatures'
-import Map from '../map'
+import * as React from 'react';
+import classnames from 'classnames';
+import Gallery from '../gallery';
+import KeyFeatures from '../keyFeatures';
+import Map from '../map';
 
 function PropertyDetails({ listing }) {
   if (!listing) {
-    return null
+    return null;
   }
 
-  const { title, address, description, price, features, details, image } = listing
-  const priceClasses = classnames('text-success', 'text-right')
+  const {
+    title,
+    address,
+    description,
+    price,
+    features,
+    details,
+    image
+  } = listing;
+  const priceClasses = classnames('text-success', 'text-right');
 
   return (
     <div>
       <div className="columns">
         <div className="column col-9 col-xs-12">
-          <h2>{title}</h2>
-          <h3 className="text-dark text-small mb-1">{description}</h3>
+          <div className="hero hero-sm hero-dark">
+            <div className="hero-body">
+              <h1>{title}</h1>
+              <p className="text-dark text-small mb-1">{description}</p>
+            </div>
+          </div>
         </div>
         <div className="column col-3 col-xs-12">
           <h5 className={priceClasses}>
@@ -43,7 +55,7 @@ function PropertyDetails({ listing }) {
       <p className="text-bold mt-3">Map</p>
       <Map address={address} />
     </div>
-  )
+  );
 }
 
-export default PropertyDetails
+export default PropertyDetails;
