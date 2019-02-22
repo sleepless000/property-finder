@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "1.jpg",
+    "image": "./server/1.jpg",
     "title": "2 bedroom duplex for sale",
     "address": "Mason Street, Manchester, Greater Manchester, M4",
     "postcode": "M4",
@@ -27,7 +27,7 @@
   },
   {
     "id": 2,
-    "image": "2.jpg",
+    "image": "./server/2.jpg",
     "title": "4 bedroom penthouse for sale",
     "address": "Beetham Tower, 301 Deansgate M3 4LX",
     "postcode": "M3 4LX",
@@ -53,7 +53,7 @@
   },
   {
     "id": 3,
-    "image": "3.jpg",
+    "image": "./server/3.jpg",
     "title": "3 bedroom flat for sale",
     "address": "1 Rice Street, Castlefield, Manchester, Greater Manchester, M3",
     "postcode": "M3",
@@ -74,7 +74,7 @@
   },
   {
     "id": 4,
-    "image": "4.jpg",
+    "image": "./server/4.jpg",
     "title": "4 bedroom penthouse for sale",
     "address": "Leftbank, Spinningfields, Manchester, M3 3AE",
     "postcode": "M3 3AE",
@@ -99,7 +99,7 @@
   },
   {
     "id": 5,
-    "image": "5.jpg",
+    "image": "./server/5.jpg",
     "title": "3 bedroom apartment for sale",
     "address": "No1 Deansgate, Manchester, M1 3AZ",
     "postcode": "M1 3AZ",
@@ -120,7 +120,7 @@
   },
   {
     "id": 6,
-    "image": "6.jpg",
+    "image": "./server/6.jpg",
     "title": "3 bedroom penthouse for sale",
     "address": "Oxygen, Store Street, Manchester, M1",
     "postcode": "M1",
