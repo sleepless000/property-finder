@@ -1,45 +1,56 @@
-import React, { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect, createContext } from 'react';
+import axios from 'axios';
 
-const PropertyListingsContext = createContext()
+const PropertyListingsContext = createContext();
 
 function PropertyListingsProvider({ children }) {
-  const [propertyListings, setPropertyListings] = useState([])
-  const [filter, setFilter] = useState({})
+  const [propertyListings, setPropertyListings] = useState([]);
+  const [filter, setFilter] = useState({});
 
   function applyFilter(listings, { priceFrom, postcode, sortOrder }) {
-    let result = listings
+    let result = listings;
     if (priceFrom) {
-      const from = Number(priceFrom)
-      result = result.filter(item => item.price >= from)
+      const from = Number(priceFrom);
+      result = result.filter(item => item.price >= from);
     }
     if (postcode) {
-      result = result.filter(item => item.postcode.toLowerCase().startsWith(postcode))
+      result = result.filter(item =>
+        item.postcode.toLowerCase().startsWith(postcode)
+      );
     }
     if (sortOrder) {
       if (sortOrder === 'highestfirst') {
-        result = result.sort((a, b) => b.price - a.price)
+        result = result.sort((a, b) => b.price - a.price);
       }
       if (sortOrder === 'lowestfirst') {
-        result = result.sort((a, b) => a.price - b.price)
+        result = result.sort((a, b) => a.price - b.price);
       }
     }
 
-    return result
+    return result;
   }
 
   function getListingByPropertyId(propertyId) {
-    return propertyListings.find(listing => listing.id === Number(propertyId))
+    return propertyListings.find(listing => listing.id === Number(propertyId));
   }
 
   async function getData() {
-    const res = await fetch('/server/listings.json')
-    const json = await res.json()
-    setPropertyListings(json)
+    try {
+      const { data } = await axios.get('./server/listings.json');
+      console.log(data);
+
+      // const res = await fetch('../server/listings.json');
+      // console.log(res);
+      // const json = await res.json();
+      setPropertyListings(data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   return (
     <PropertyListingsContext.Provider
@@ -52,7 +63,7 @@ function PropertyListingsProvider({ children }) {
     >
       {children}
     </PropertyListingsContext.Provider>
-  )
+  );
 }
 
-export { PropertyListingsProvider, PropertyListingsContext as default }
+export { PropertyListingsProvider, PropertyListingsContext as default };

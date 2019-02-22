@@ -1,13 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router } from '@reach/router'
-import { PropertyListingsProvider } from './context/PropertyListingsProvider'
-import Home from './pages/Home'
-import Details from './pages/Details'
-import NotFound from './pages/NotFound'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router } from '@reach/router';
+import { PropertyListingsProvider } from './context/PropertyListingsProvider';
+import Home from './pages/Home';
+import Details from './pages/Details';
+import NotFound from './pages/NotFound';
 
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept();
 }
 
 ReactDOM.render(
@@ -19,4 +19,4 @@ ReactDOM.render(
     </Router>
   </PropertyListingsProvider>,
   document.getElementById('root')
-)
+);
